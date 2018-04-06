@@ -138,10 +138,14 @@ class ViewController: UIViewController, AddEntryDelegate, UITableViewDelegate, U
         let entries = Array(m_entries.reversed())
         print(String(entries[indexPath.row].money))
         print(entries[indexPath.row].description)
-        cell.textLabel?.text = "$" + String(entries[indexPath.row].money)
+        cell.textLabel?.text = "$" + String(format: "%.2f", entries[indexPath.row].money)
         cell.detailTextLabel?.text = entries[indexPath.row].description
         
         return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     

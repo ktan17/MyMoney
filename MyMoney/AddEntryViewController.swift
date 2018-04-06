@@ -38,14 +38,16 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        m_textFieldTests[textField.tag-1] = !textField.text!.isEmpty
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if m_textFieldTests[0] && m_textFieldTests[1] {
+        if !moneyTextField.text!.isEmpty && !descriptionTextField.text!.isEmpty {
             doneButton.isEnabled = true
         } else {
             doneButton.isEnabled = false
         }
+        
+        return true
+        
     }
     
 }
